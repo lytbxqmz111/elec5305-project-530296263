@@ -1,7 +1,5 @@
 # Investigating the Effect of Acoustic Feature Representation on Musical Instrument Recognition
 
-## Project Proposal
-
 [View the Project Proposal (PDF)](./Project_Proposal.pdf)
 
 This project investigates how different acoustic feature representations affect the performance of automatic musical instrument recognition.
