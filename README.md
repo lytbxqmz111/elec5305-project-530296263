@@ -2,7 +2,7 @@
 
 ## Project Proposal
 
-[View the Project Proposal (PDF)](./project_proposal.pdf)
+[View the Project Proposal (PDF)](./Project_Proposal.pdf)
 
 This project investigates how different acoustic feature representations affect the performance of automatic musical instrument recognition.
 
