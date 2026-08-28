@@ -1,5 +1,9 @@
 # Investigating the Effect of Acoustic Feature Representation on Musical Instrument Recognition
 
+## Project Proposal
+
+[View the Project Proposal (PDF)](./project_proposal.pdf)
+
 This project investigates how different acoustic feature representations affect the performance of automatic musical instrument recognition.
 
 Musical instruments produce distinctive sounds through differences in their spectral, temporal, and harmonic characteristics. However, different instruments can share similar acoustic properties, making instrument recognition a challenging music information retrieval task. This project focuses on understanding which acoustic features are most informative for distinguishing musical instruments and whether combining different feature types improves classification performance.
