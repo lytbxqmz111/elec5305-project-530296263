@@ -1,0 +1,38 @@
+metadata_path: data/metadata/nsynth_metadata.parquet
+tables_dir: outputs/tables/metadata_audit
+figures_dir: outputs/figures/metadata_audit
+reports_dir: outputs/reports
+manifests_dir: data/manifests
+
+selection:
+  # A family must be represented by at least four unseen instruments in both
+  # official evaluation splits. This excludes conclusions based on only one or
+  # two evaluation instruments.
+  min_eval_instruments_per_split: 4
+  min_families: 5
+  max_families: 8
+
+  # Candidate intervals contain an equal integer number of semitones in each
+  # of the lower, middle, and upper register bins.
+  min_interval_semitones: 24
+  max_interval_semitones: 60
+  interval_step_semitones: 3
+
+  # Every family x register x split cell must satisfy these support rules.
+  min_notes_per_family_register_split: 20
+  min_instruments_per_family_register_split: 2
+  min_pitch_coverage_fraction: 0.65
+
+  # A pitch is "well supported" only when it meets both conditions below.
+  # Each register must contain several pitches that are well supported by all
+  # selected families, separately in train, validation, and test.
+  exact_pitch_min_notes: 5
+  exact_pitch_min_instruments: 2
+  min_shared_supported_pitches_per_register_split: 4
+
+balancing:
+  random_seed: 5305
+  max_notes_per_family_register_velocity_cell: 40
+  max_notes_per_family_exact_pitch_cell: 40
+  max_instrument_share_per_cell: 0.5
+  min_instruments_per_cell: 2

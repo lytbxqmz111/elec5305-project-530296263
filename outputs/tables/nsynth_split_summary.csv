@@ -1,0 +1,4 @@
+split,notes,instruments,families,pitch_min,pitch_max,velocity_min,velocity_max
+train,289205,953,11,9,120,25,127
+valid,12678,53,10,9,120,25,127
+test,4096,53,10,9,119,25,127

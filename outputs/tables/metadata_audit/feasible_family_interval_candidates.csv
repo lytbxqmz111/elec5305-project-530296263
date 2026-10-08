@@ -1,0 +1,2 @@
+families,family_count,pitch_low,pitch_high,interval_semitones,min_cell_notes,min_cell_instruments,min_pitch_coverage,min_shared_supported_pitches,total_notes_in_interval
+bass|brass|guitar|keyboard|organ|string,6,43,69,27,34.0,3.0,0.8888888888888888,4.0,86416.0

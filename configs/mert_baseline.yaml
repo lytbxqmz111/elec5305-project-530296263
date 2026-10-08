@@ -1,0 +1,12 @@
+embedding_index: data/embeddings/mert_v0_public_final_mean/index.parquet
+selection_decision_path: data/manifests/nsynth_pitch_control_decision.json
+
+model_dir: outputs/models/mert_baseline
+results_dir: outputs/results/mert_baseline
+figures_dir: outputs/figures/mert_baseline
+
+classifier:
+  c_values: [0.01, 0.1, 1.0]
+  class_weight: balanced
+  max_iter: 5000
+  random_seed: 5305

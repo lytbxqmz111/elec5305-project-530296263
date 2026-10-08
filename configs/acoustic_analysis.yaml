@@ -1,0 +1,39 @@
+manifest_path: data/manifests/nsynth_pitch_balanced_manifest.parquet
+results_dir: outputs/results/acoustic_analysis
+figures_dir: outputs/figures/acoustic_analysis
+
+analysis:
+  sample_rate: 16000
+  n_fft: 1024
+  hop_length: 512
+  n_mels: 80
+  n_mfcc: 13
+  rolloff_fraction: 0.85
+  pre_emphasis: 0.97
+  spectrum_fft: 16384
+  attack_plot_seconds: 1.25
+
+pairs:
+  - pair_id: same_pitch_brass_string
+    comparison_type: same_pitch_different_family
+    item_a: brass_acoustic_016-060-127
+    item_b: string_acoustic_056-060-127
+    rationale: Both are acoustic-source notes at MIDI 60 and velocity 127; the comparison isolates brass-versus-string timbre in the middle register.
+
+  - pair_id: same_pitch_keyboard_organ
+    comparison_type: same_pitch_different_family
+    item_a: keyboard_electronic_078-043-100
+    item_b: organ_electronic_028-043-100
+    rationale: Both are electronic-source notes at MIDI 43 and velocity 100; the comparison isolates keyboard-versus-organ timbre in the lower register.
+
+  - pair_id: same_brass_low_high
+    comparison_type: same_family_different_pitch
+    item_a: brass_acoustic_006-043-050
+    item_b: brass_acoustic_006-068-050
+    rationale: The same acoustic brass source instrument and velocity are compared across a 25-semitone lower-to-upper register shift.
+
+  - pair_id: same_organ_low_high
+    comparison_type: same_family_different_pitch
+    item_a: organ_electronic_001-043-127
+    item_b: organ_electronic_001-069-127
+    rationale: The same electronic organ source instrument and velocity are compared across a 26-semitone lower-to-upper register shift.

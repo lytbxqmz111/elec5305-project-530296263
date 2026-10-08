@@ -1,0 +1,76 @@
+{
+  "manifest": "data/manifests/nsynth_pitch_balanced_manifest.parquet",
+  "selection_uses_predictions": false,
+  "pair_count": 4,
+  "same_pitch_pair_count": 2,
+  "same_family_pair_count": 2,
+  "analysis_settings": {
+    "sample_rate": 16000,
+    "n_fft": 1024,
+    "hop_length": 512,
+    "n_mels": 80,
+    "n_mfcc": 13,
+    "rolloff_fraction": 0.85,
+    "pre_emphasis": 0.97,
+    "spectrum_fft": 16384,
+    "attack_plot_seconds": 1.25
+  },
+  "pairs": [
+    {
+      "pair_id": "same_pitch_brass_string",
+      "comparison_type": "same_pitch_different_family",
+      "item_a": "brass_acoustic_016-060-127",
+      "item_b": "string_acoustic_056-060-127",
+      "pitch_a": 60,
+      "pitch_b": 60,
+      "pitch_difference_semitones": 0,
+      "expected_f0_ratio_b_over_a": 1.0,
+      "spectral_centroid_ratio_b_over_a": 0.4142480915754421,
+      "mel_envelope_cosine_similarity": 0.3386439383029938,
+      "attack_envelope_correlation": 0.2256654285323012,
+      "attack_duration_difference_seconds_b_minus_a": -0.096
+    },
+    {
+      "pair_id": "same_pitch_keyboard_organ",
+      "comparison_type": "same_pitch_different_family",
+      "item_a": "keyboard_electronic_078-043-100",
+      "item_b": "organ_electronic_028-043-100",
+      "pitch_a": 43,
+      "pitch_b": 43,
+      "pitch_difference_semitones": 0,
+      "expected_f0_ratio_b_over_a": 1.0,
+      "spectral_centroid_ratio_b_over_a": 0.8005259349631256,
+      "mel_envelope_cosine_similarity": 0.19794292747974396,
+      "attack_envelope_correlation": 0.5181239821714569,
+      "attack_duration_difference_seconds_b_minus_a": 1.6
+    },
+    {
+      "pair_id": "same_brass_low_high",
+      "comparison_type": "same_family_different_pitch",
+      "item_a": "brass_acoustic_006-043-050",
+      "item_b": "brass_acoustic_006-068-050",
+      "pitch_a": 43,
+      "pitch_b": 68,
+      "pitch_difference_semitones": 25,
+      "expected_f0_ratio_b_over_a": 4.23785237743718,
+      "spectral_centroid_ratio_b_over_a": 1.262502124119663,
+      "mel_envelope_cosine_similarity": 0.21120646595954895,
+      "attack_envelope_correlation": 0.906417687648756,
+      "attack_duration_difference_seconds_b_minus_a": -0.032
+    },
+    {
+      "pair_id": "same_organ_low_high",
+      "comparison_type": "same_family_different_pitch",
+      "item_a": "organ_electronic_001-043-127",
+      "item_b": "organ_electronic_001-069-127",
+      "pitch_a": 43,
+      "pitch_b": 69,
+      "pitch_difference_semitones": 26,
+      "expected_f0_ratio_b_over_a": 4.489848193237491,
+      "spectral_centroid_ratio_b_over_a": 1.3550296756632156,
+      "mel_envelope_cosine_similarity": 0.18963053822517395,
+      "attack_envelope_correlation": 0.8132807335136426,
+      "attack_duration_difference_seconds_b_minus_a": 0.3840000000000001
+    }
+  ]
+}

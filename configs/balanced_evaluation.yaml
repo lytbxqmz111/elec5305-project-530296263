@@ -1,0 +1,14 @@
+manifest_path: data/manifests/nsynth_pitch_balanced_manifest.parquet
+
+handcrafted:
+  feature_cache_dir: data/cache/handcrafted/ordinary
+  model_path: outputs/models/handcrafted_baseline/handcrafted_linear_svm.joblib
+  ordinary_metrics_path: outputs/results/handcrafted_baseline/ordinary_metrics.json
+
+mert:
+  embedding_index: data/embeddings/mert_v0_public_final_mean/index.parquet
+  model_path: outputs/models/mert_baseline/mert_linear_svm.joblib
+  ordinary_metrics_path: outputs/results/mert_baseline/ordinary_metrics.json
+
+results_dir: outputs/results/balanced_evaluation
+figures_dir: outputs/figures/balanced_evaluation

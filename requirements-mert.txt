@@ -1,0 +1,4 @@
+# Install a CUDA-enabled PyTorch build first using the official PyTorch selector.
+transformers>=4.41,<5
+safetensors>=0.4
+huggingface-hub>=0.23

@@ -1,0 +1,7 @@
+representation,instrument_family,rows,accuracy,macro_f1
+mert,bass,99,1.0,1.0
+mert,brass,99,1.0,1.0
+mert,guitar,99,1.0,1.0
+mert,keyboard,99,0.98989898989899,0.9900141590282435
+mert,organ,99,0.898989898989899,0.9018361581920904
+mert,string,99,0.9797979797979798,0.9788306451612904
