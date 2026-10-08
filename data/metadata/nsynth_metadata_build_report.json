@@ -1,0 +1,115 @@
+{
+  "created_utc": "2026-10-02T09:22:47.915863+00:00",
+  "config": "configs/nsynth_metadata.yaml",
+  "dataset_root": "data/raw/nsynth/extracted",
+  "total_rows": 305979,
+  "total_instruments": 1006,
+  "families": [
+    "bass",
+    "brass",
+    "flute",
+    "guitar",
+    "keyboard",
+    "mallet",
+    "organ",
+    "reed",
+    "string",
+    "synth_lead",
+    "vocal"
+  ],
+  "split_reports": {
+    "train": {
+      "rows": 289205,
+      "instruments": 953,
+      "families": 11,
+      "pitch_min": 9,
+      "pitch_max": 120,
+      "velocity_values": [
+        25,
+        50,
+        75,
+        100,
+        127
+      ],
+      "sample_rates": [
+        16000
+      ],
+      "wav_files": 289205,
+      "missing_wav_files": 0,
+      "extra_wav_files": 0
+    },
+    "valid": {
+      "rows": 12678,
+      "instruments": 53,
+      "families": 10,
+      "pitch_min": 9,
+      "pitch_max": 120,
+      "velocity_values": [
+        25,
+        50,
+        75,
+        100,
+        127
+      ],
+      "sample_rates": [
+        16000
+      ],
+      "wav_files": 12678,
+      "missing_wav_files": 0,
+      "extra_wav_files": 0
+    },
+    "test": {
+      "rows": 4096,
+      "instruments": 53,
+      "families": 10,
+      "pitch_min": 9,
+      "pitch_max": 119,
+      "velocity_values": [
+        25,
+        50,
+        75,
+        100,
+        127
+      ],
+      "sample_rates": [
+        16000
+      ],
+      "wav_files": 4096,
+      "missing_wav_files": 0,
+      "extra_wav_files": 0
+    }
+  },
+  "split_separation": {
+    "train_valid_instrument_overlap": 0,
+    "train_test_instrument_overlap": 0,
+    "valid_test_instrument_overlap": 53,
+    "valid_test_overlap_sample": [
+      "bass_electronic_018",
+      "bass_electronic_025",
+      "bass_electronic_027",
+      "bass_synthetic_009",
+      "bass_synthetic_033",
+      "bass_synthetic_034",
+      "bass_synthetic_068",
+      "bass_synthetic_098",
+      "bass_synthetic_134",
+      "bass_synthetic_135"
+    ]
+  },
+  "metadata_outputs": {
+    "parquet": "data/metadata/nsynth_metadata.parquet"
+  },
+  "table_outputs": [
+    "outputs/tables/nsynth_split_summary.csv",
+    "outputs/tables/nsynth_family_summary.csv",
+    "outputs/tables/nsynth_family_pitch_counts.csv",
+    "outputs/tables/nsynth_family_velocity_counts.csv",
+    "outputs/tables/nsynth_family_source_summary.csv"
+  ],
+  "figure_outputs": [
+    "outputs/figures/metadata_audit/nsynth_pitch_distribution_by_family.png",
+    "outputs/figures/metadata_audit/nsynth_family_pitch_heatmaps.png",
+    "outputs/figures/metadata_audit/nsynth_family_velocity_heatmaps.png",
+    "outputs/figures/metadata_audit/nsynth_family_note_and_instrument_counts.png"
+  ]
+}

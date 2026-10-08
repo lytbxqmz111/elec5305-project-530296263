@@ -1,0 +1,12 @@
+instrument_family_str,train_instruments,valid_instruments,test_instruments,eligible,exclusion_reason
+bass,184,10,10,True,
+brass,64,5,5,True,
+flute,43,2,2,False,fewer than 4 source instruments in valid or test
+guitar,90,7,7,True,
+keyboard,138,8,8,True,
+mallet,97,3,3,False,fewer than 4 source instruments in valid or test
+organ,128,6,6,True,
+reed,61,4,4,True,
+string,87,6,6,True,
+synth_lead,13,0,0,False,fewer than 4 source instruments in valid or test
+vocal,48,2,2,False,fewer than 4 source instruments in valid or test

@@ -1,0 +1,21 @@
+selection_decision_path: data/manifests/nsynth_pitch_control_decision.json
+balanced_manifest_path: data/manifests/nsynth_pitch_balanced_manifest.parquet
+family_robustness_metrics_path: outputs/results/balanced_evaluation/balanced_metrics.json
+
+handcrafted:
+  feature_cache_dir: data/cache/handcrafted/ordinary
+  family_model_path: outputs/models/handcrafted_baseline/handcrafted_linear_svm.joblib
+
+mert:
+  embedding_index: data/embeddings/mert_v0_public_final_mean/index.parquet
+  family_model_path: outputs/models/mert_baseline/mert_linear_svm.joblib
+
+classifier:
+  c_values: [0.01, 0.1, 1.0]
+  class_weight: balanced
+  max_iter: 5000
+  random_seed: 5305
+
+model_dir: outputs/models/pitch_probe
+results_dir: outputs/results/pitch_probe
+figures_dir: outputs/figures/pitch_probe

@@ -1,0 +1,31 @@
+metadata_path: data/metadata/nsynth_metadata.parquet
+selection_decision_path: data/manifests/nsynth_pitch_control_decision.json
+
+feature_cache_dir: data/cache/handcrafted
+model_dir: outputs/models/handcrafted_baseline
+results_dir: outputs/results/handcrafted_baseline
+figures_dir: outputs/figures/handcrafted_baseline
+
+dataset:
+  # Ordinary condition: all notes from the selected families, while preserving
+  # the official instrument-disjoint train/validation/test labels.
+  use_selected_families: true
+
+features:
+  sample_rate: 16000
+  n_fft: 1024
+  hop_length: 512
+  n_mels: 40
+  n_mfcc: 13
+  rolloff_fraction: 0.85
+  pre_emphasis: 0.97
+
+extraction:
+  workers: 12
+  rows_per_part: 1000
+
+classifier:
+  c_values: [0.01, 0.1, 1.0]
+  class_weight: balanced
+  max_iter: 5000
+  random_seed: 5305

@@ -1,0 +1,30 @@
+metadata_path: data/metadata/nsynth_metadata.parquet
+selection_decision_path: data/manifests/nsynth_pitch_control_decision.json
+embedding_dir: data/embeddings/mert_v0_public_final_mean
+
+manifests_to_validate:
+  - data/manifests/nsynth_pitch_balanced_manifest.parquet
+  - data/manifests/nsynth_exact_pitch_sensitivity_manifest.parquet
+
+model:
+  model_id: m-a-p/MERT-v0-public
+  # Pin remote model code and weights instead of following a moving main branch.
+  revision: 83e57375a5e408f0a4a25d8e85d78a900f1e40d7
+  trust_remote_code: true
+  sample_rate: 16000
+  expected_audio_samples: 64000
+  hidden_layer: -1
+  expected_embedding_dim: 768
+  pooling: mean
+  # MERT-v0-public was saved with Transformers 4.25.1. Newer HuBERT code
+  # requires this field; false preserves the original positional convolution.
+  compatibility_overrides:
+    conv_pos_batch_norm: false
+
+inference:
+  device: cuda
+  batch_size: 16
+  use_fp16_on_cuda: true
+  output_dtype: float32
+  rows_per_shard: 2048
+  random_seed: 5305

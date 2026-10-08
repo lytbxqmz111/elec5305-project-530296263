@@ -1,0 +1,240 @@
+{
+  "config": "configs/nsynth_audit.yaml",
+  "selection": {
+    "families": [
+      "bass",
+      "brass",
+      "guitar",
+      "keyboard",
+      "organ",
+      "string"
+    ],
+    "pitch_low": 43,
+    "pitch_high": 69,
+    "interval_semitones": 27,
+    "pitch_bins": {
+      "lower": [
+        43,
+        51
+      ],
+      "middle": [
+        52,
+        60
+      ],
+      "upper": [
+        61,
+        69
+      ]
+    },
+    "selection_metrics": {
+      "min_cell_notes": 34.0,
+      "min_cell_instruments": 3.0,
+      "min_pitch_coverage": 0.8888888888888888,
+      "min_shared_supported_pitches": 4.0,
+      "total_notes_in_interval": 86416.0
+    },
+    "shared_supported_pitches": {
+      "train": {
+        "lower": [
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "middle": [
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ],
+        "upper": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ]
+      },
+      "valid": {
+        "lower": [
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "middle": [
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ],
+        "upper": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68,
+          69
+        ]
+      },
+      "test": {
+        "lower": [
+          43,
+          45,
+          49,
+          51
+        ],
+        "middle": [
+          55,
+          58,
+          59,
+          60
+        ],
+        "upper": [
+          61,
+          62,
+          64,
+          65
+        ]
+      }
+    }
+  },
+  "manifest_summary": {
+    "rows": 6078,
+    "families": [
+      "bass",
+      "brass",
+      "guitar",
+      "keyboard",
+      "organ",
+      "string"
+    ],
+    "pitch_low": 43,
+    "pitch_high": 69,
+    "register_velocity_balance": true,
+    "maximum_observed_instrument_share_per_cell": 0.5,
+    "split_rows": {
+      "train": 3600,
+      "valid": 1884,
+      "test": 594
+    },
+    "split_source_instruments": {
+      "train": 660,
+      "valid": 42,
+      "test": 42
+    },
+    "register_rows_per_family": {
+      "train": {
+        "lower": 200,
+        "middle": 200,
+        "upper": 200
+      },
+      "valid": {
+        "lower": 99,
+        "middle": 135,
+        "upper": 80
+      },
+      "test": {
+        "lower": 31,
+        "middle": 36,
+        "upper": 32
+      }
+    }
+  },
+  "manifest_parquet": "data/manifests/nsynth_pitch_balanced_manifest.parquet",
+  "manifest_item_ids": "data/manifests/nsynth_pitch_balanced_item_ids.csv",
+  "exact_pitch_sensitivity_summary": {
+    "rows": 8364,
+    "families": [
+      "bass",
+      "brass",
+      "guitar",
+      "keyboard",
+      "organ",
+      "string"
+    ],
+    "pitch_low": 43,
+    "pitch_high": 69,
+    "exact_pitch_velocity_balance": true,
+    "maximum_observed_instrument_share_per_cell": 0.5,
+    "split_rows": {
+      "train": 6480,
+      "valid": 1764,
+      "test": 120
+    },
+    "split_source_instruments": {
+      "train": 677,
+      "valid": 42,
+      "test": 36
+    },
+    "register_rows_per_family": {
+      "train": {
+        "lower": 360,
+        "middle": 360,
+        "upper": 360
+      },
+      "valid": {
+        "lower": 99,
+        "middle": 117,
+        "upper": 78
+      },
+      "test": {
+        "lower": 5,
+        "middle": 7,
+        "upper": 8
+      }
+    }
+  },
+  "exact_pitch_sensitivity_parquet": "data/manifests/nsynth_exact_pitch_sensitivity_manifest.parquet",
+  "exact_pitch_sensitivity_item_ids": "data/manifests/nsynth_exact_pitch_sensitivity_item_ids.csv",
+  "tables": [
+    "outputs/tables/metadata_audit/family_overview.csv",
+    "outputs/tables/metadata_audit/family_pitch_counts.csv",
+    "outputs/tables/metadata_audit/family_velocity_counts.csv",
+    "outputs/tables/metadata_audit/source_instrument_contributions.csv",
+    "outputs/tables/metadata_audit/source_type_composition.csv",
+    "outputs/tables/metadata_audit/family_eligibility.csv",
+    "outputs/tables/metadata_audit/feasible_family_interval_candidates.csv",
+    "outputs/tables/metadata_audit/selected_family_pitch_bin_counts.csv",
+    "outputs/tables/metadata_audit/selected_family_pitch_counts.csv",
+    "outputs/tables/metadata_audit/balanced_sampling_strata.csv",
+    "outputs/tables/metadata_audit/exact_pitch_sensitivity_strata.csv"
+  ],
+  "figures": [
+    "outputs/figures/metadata_audit/nsynth_pitch_distribution_by_family.png",
+    "outputs/figures/metadata_audit/nsynth_family_pitch_heatmaps.png",
+    "outputs/figures/metadata_audit/nsynth_family_velocity_heatmaps.png",
+    "outputs/figures/metadata_audit/nsynth_family_note_and_instrument_counts.png",
+    "outputs/figures/metadata_audit/source_instrument_contributions.png",
+    "outputs/figures/metadata_audit/source_type_composition.png",
+    "outputs/figures/metadata_audit/balanced_manifest_counts.png"
+  ],
+  "report": "outputs/reports/nsynth_metadata_audit.md"
+}

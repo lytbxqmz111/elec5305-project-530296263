@@ -1,0 +1,62 @@
+{
+  "representation": "frozen_MERT_v0_public_final_layer_mean_pool",
+  "classifier": "LinearSVC",
+  "scaler_fit_split": "train",
+  "classifier_fit_split": "train",
+  "hyperparameter_selection_split": "valid",
+  "test_evaluations": 1,
+  "selected_C": 1.0,
+  "embedding_dim": 768,
+  "embedding_metadata": {
+    "model_id": "m-a-p/MERT-v0-public",
+    "model_revision": "83e57375a5e408f0a4a25d8e85d78a900f1e40d7",
+    "hidden_layer": -1,
+    "pooling": "mean",
+    "cache_signature": "6c2ae639a8a001d2"
+  },
+  "families": [
+    "bass",
+    "brass",
+    "guitar",
+    "keyboard",
+    "organ",
+    "string"
+  ],
+  "source_split_rows": {
+    "train": 216611,
+    "valid": 10421,
+    "test": 3338
+  },
+  "ordinary_test_pitch_range": [
+    43,
+    69
+  ],
+  "metrics": {
+    "valid": {
+      "accuracy": 0.6318011707129834,
+      "macro_f1": 0.6612243440739198,
+      "rows": 10421,
+      "per_family_recall": {
+        "bass": 0.5818802122820318,
+        "brass": 0.6331828442437923,
+        "guitar": 0.5170591061989428,
+        "keyboard": 0.6717970049916805,
+        "organ": 0.6827284105131415,
+        "string": 0.8673218673218673
+      }
+    },
+    "ordinary_test": {
+      "accuracy": 0.6712218649517685,
+      "macro_f1": 0.6982095156151895,
+      "rows": 1244,
+      "per_family_recall": {
+        "bass": 0.5774193548387097,
+        "brass": 0.7727272727272727,
+        "guitar": 0.5598086124401914,
+        "keyboard": 0.6743295019157088,
+        "organ": 0.7386934673366834,
+        "string": 0.8571428571428571
+      }
+    }
+  }
+}

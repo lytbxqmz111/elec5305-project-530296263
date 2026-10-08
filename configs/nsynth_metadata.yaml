@@ -1,0 +1,18 @@
+dataset_root: data/raw/nsynth/extracted
+
+split_directories:
+  train: nsynth-train
+  valid: nsynth-valid
+  test: nsynth-test
+
+expected_split_counts:
+  train: 289205
+  valid: 12678
+  test: 4096
+
+metadata_dir: data/metadata
+tables_dir: outputs/tables
+figures_dir: outputs/figures/metadata_audit
+
+verify_audio_files: true
+write_compressed_csv: false

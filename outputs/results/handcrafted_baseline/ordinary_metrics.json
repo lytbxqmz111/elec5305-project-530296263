@@ -1,0 +1,55 @@
+{
+  "representation": "handcrafted_acoustic_features",
+  "classifier": "LinearSVC",
+  "scaler_fit_split": "train",
+  "classifier_fit_split": "train",
+  "hyperparameter_selection_split": "valid",
+  "test_evaluations": 1,
+  "selected_C": 0.1,
+  "feature_count": 76,
+  "families": [
+    "bass",
+    "brass",
+    "guitar",
+    "keyboard",
+    "organ",
+    "string"
+  ],
+  "source_split_rows": {
+    "train": 216611,
+    "valid": 10421,
+    "test": 3338
+  },
+  "ordinary_test_pitch_range": [
+    43,
+    69
+  ],
+  "metrics": {
+    "valid": {
+      "accuracy": 0.5701947989636311,
+      "macro_f1": 0.6288150390642036,
+      "rows": 10421,
+      "per_family_recall": {
+        "bass": 0.5443517816527672,
+        "brass": 0.6941309255079007,
+        "guitar": 0.40028832292167227,
+        "keyboard": 0.5357737104825291,
+        "organ": 0.6433041301627034,
+        "string": 0.9115479115479116
+      }
+    },
+    "test": {
+      "accuracy": 0.6358520900321544,
+      "macro_f1": 0.6815613496727316,
+      "rows": 1244,
+      "per_family_recall": {
+        "bass": 0.43548387096774194,
+        "brass": 0.7954545454545454,
+        "guitar": 0.5358851674641149,
+        "keyboard": 0.6743295019157088,
+        "organ": 0.6733668341708543,
+        "string": 0.9699248120300752
+      }
+    }
+  }
+}

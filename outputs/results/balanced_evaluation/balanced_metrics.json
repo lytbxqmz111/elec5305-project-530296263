@@ -1,0 +1,59 @@
+{
+  "manifest": "data/manifests/nsynth_pitch_balanced_manifest.parquet",
+  "balanced_test_rows": 594,
+  "models_refit": false,
+  "systems": {
+    "handcrafted": {
+      "model_path": "outputs/models/handcrafted_baseline/handcrafted_linear_svm.joblib",
+      "model_reused_without_refit": true,
+      "ordinary": {
+        "accuracy": 0.6358520900321544,
+        "macro_f1": 0.6815613496727316,
+        "rows": 1244
+      },
+      "balanced": {
+        "rows": 594,
+        "accuracy": 0.664983164983165,
+        "macro_f1": 0.6707288983692944,
+        "per_family_recall": {
+          "bass": 0.41414141414141414,
+          "brass": 0.7878787878787878,
+          "guitar": 0.5252525252525253,
+          "keyboard": 0.6262626262626263,
+          "organ": 0.6666666666666666,
+          "string": 0.9696969696969697
+        }
+      },
+      "delta_balanced_minus_ordinary": {
+        "accuracy": 0.029131074951010638,
+        "macro_f1": -0.01083245130343724
+      }
+    },
+    "mert": {
+      "model_path": "outputs/models/mert_baseline/mert_linear_svm.joblib",
+      "model_reused_without_refit": true,
+      "ordinary": {
+        "accuracy": 0.6712218649517685,
+        "macro_f1": 0.6982095156151895,
+        "rows": 1244
+      },
+      "balanced": {
+        "rows": 594,
+        "accuracy": 0.6986531986531986,
+        "macro_f1": 0.7055424582448245,
+        "per_family_recall": {
+          "bass": 0.5757575757575758,
+          "brass": 0.7878787878787878,
+          "guitar": 0.6161616161616161,
+          "keyboard": 0.6363636363636364,
+          "organ": 0.7373737373737373,
+          "string": 0.8383838383838383
+        }
+      },
+      "delta_balanced_minus_ordinary": {
+        "accuracy": 0.02743133370143014,
+        "macro_f1": 0.00733294262963502
+      }
+    }
+  }
+}

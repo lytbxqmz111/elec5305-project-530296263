@@ -1,0 +1,5 @@
+pair_id,comparison_type,item_a,item_b,pitch_a,pitch_b,pitch_difference_semitones,expected_f0_ratio_b_over_a,spectral_centroid_ratio_b_over_a,mel_envelope_cosine_similarity,attack_envelope_correlation,attack_duration_difference_seconds_b_minus_a
+same_pitch_brass_string,same_pitch_different_family,brass_acoustic_016-060-127,string_acoustic_056-060-127,60,60,0,1.0,0.4142480915754421,0.3386439383029938,0.2256654285323012,-0.096
+same_pitch_keyboard_organ,same_pitch_different_family,keyboard_electronic_078-043-100,organ_electronic_028-043-100,43,43,0,1.0,0.8005259349631256,0.19794292747974396,0.5181239821714569,1.6
+same_brass_low_high,same_family_different_pitch,brass_acoustic_006-043-050,brass_acoustic_006-068-050,43,68,25,4.23785237743718,1.262502124119663,0.21120646595954895,0.906417687648756,-0.032
+same_organ_low_high,same_family_different_pitch,organ_electronic_001-043-127,organ_electronic_001-069-127,43,69,26,4.489848193237491,1.3550296756632156,0.18963053822517395,0.8132807335136426,0.3840000000000001
