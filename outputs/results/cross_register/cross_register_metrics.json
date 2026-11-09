@@ -1,0 +1,218 @@
+{
+  "design": "Frozen balanced manifest; source-register train/valid, official instrument-disjoint test; same and cross targets",
+  "manifest": "data/manifests/nsynth_pitch_balanced_manifest.parquet",
+  "systems": {
+    "handcrafted": {
+      "lower": {
+        "source_register": "lower",
+        "train_rows": 1200,
+        "valid_rows": 594,
+        "selected_C": 0.1,
+        "validation_selection": [
+          {
+            "C": 0.01,
+            "accuracy": 0.7474747474747475,
+            "macro_f1": 0.7498292905739552
+          },
+          {
+            "C": 0.1,
+            "accuracy": 0.7643097643097643,
+            "macro_f1": 0.7640836285388394
+          },
+          {
+            "C": 1.0,
+            "accuracy": 0.7626262626262627,
+            "macro_f1": 0.7621524283262806
+          }
+        ],
+        "test": {
+          "lower": {
+            "rows": 186,
+            "accuracy": 0.7795698924731183,
+            "macro_f1": 0.7792976957751302,
+            "per_family_recall": {
+              "bass": 0.7419354838709677,
+              "brass": 1.0,
+              "guitar": 0.6129032258064516,
+              "keyboard": 0.5806451612903226,
+              "organ": 0.7419354838709677,
+              "string": 1.0
+            }
+          },
+          "upper": {
+            "rows": 192,
+            "accuracy": 0.65625,
+            "macro_f1": 0.6552318841948742,
+            "per_family_recall": {
+              "bass": 0.5625,
+              "brass": 0.46875,
+              "guitar": 0.71875,
+              "keyboard": 0.46875,
+              "organ": 0.9375,
+              "string": 0.78125
+            }
+          },
+          "cross_minus_same_macro_f1": -0.12406581158025598
+        }
+      },
+      "upper": {
+        "source_register": "upper",
+        "train_rows": 1200,
+        "valid_rows": 480,
+        "selected_C": 0.1,
+        "validation_selection": [
+          {
+            "C": 0.01,
+            "accuracy": 0.7375,
+            "macro_f1": 0.740315837750706
+          },
+          {
+            "C": 0.1,
+            "accuracy": 0.7625,
+            "macro_f1": 0.768207794779156
+          },
+          {
+            "C": 1.0,
+            "accuracy": 0.7458333333333333,
+            "macro_f1": 0.7535980851868862
+          }
+        ],
+        "test": {
+          "lower": {
+            "rows": 186,
+            "accuracy": 0.5806451612903226,
+            "macro_f1": 0.5766673112017034,
+            "per_family_recall": {
+              "bass": 0.8387096774193549,
+              "brass": 0.7741935483870968,
+              "guitar": 0.25806451612903225,
+              "keyboard": 0.5806451612903226,
+              "organ": 0.7419354838709677,
+              "string": 0.2903225806451613
+            }
+          },
+          "upper": {
+            "rows": 192,
+            "accuracy": 0.7239583333333334,
+            "macro_f1": 0.733823859510134,
+            "per_family_recall": {
+              "bass": 0.59375,
+              "brass": 0.71875,
+              "guitar": 0.71875,
+              "keyboard": 0.65625,
+              "organ": 0.6875,
+              "string": 0.96875
+            }
+          },
+          "cross_minus_same_macro_f1": -0.1571565483084305
+        }
+      }
+    },
+    "mert": {
+      "lower": {
+        "source_register": "lower",
+        "train_rows": 1200,
+        "valid_rows": 594,
+        "selected_C": 0.01,
+        "validation_selection": [
+          {
+            "C": 0.01,
+            "accuracy": 0.7154882154882155,
+            "macro_f1": 0.7167687417601601
+          },
+          {
+            "C": 0.1,
+            "accuracy": 0.6632996632996633,
+            "macro_f1": 0.6660984557738815
+          },
+          {
+            "C": 1.0,
+            "accuracy": 0.632996632996633,
+            "macro_f1": 0.6377324232087324
+          }
+        ],
+        "test": {
+          "lower": {
+            "rows": 186,
+            "accuracy": 0.6182795698924731,
+            "macro_f1": 0.6203482020909613,
+            "per_family_recall": {
+              "bass": 0.5483870967741935,
+              "brass": 0.8387096774193549,
+              "guitar": 0.41935483870967744,
+              "keyboard": 0.45161290322580644,
+              "organ": 0.6774193548387096,
+              "string": 0.7741935483870968
+            }
+          },
+          "upper": {
+            "rows": 192,
+            "accuracy": 0.328125,
+            "macro_f1": 0.3118403328696275,
+            "per_family_recall": {
+              "bass": 0.3125,
+              "brass": 0.09375,
+              "guitar": 0.4375,
+              "keyboard": 0.09375,
+              "organ": 0.71875,
+              "string": 0.3125
+            }
+          },
+          "cross_minus_same_macro_f1": -0.30850786922133383
+        }
+      },
+      "upper": {
+        "source_register": "upper",
+        "train_rows": 1200,
+        "valid_rows": 480,
+        "selected_C": 0.01,
+        "validation_selection": [
+          {
+            "C": 0.01,
+            "accuracy": 0.6625,
+            "macro_f1": 0.6733570688310615
+          },
+          {
+            "C": 0.1,
+            "accuracy": 0.625,
+            "macro_f1": 0.6337573125207772
+          },
+          {
+            "C": 1.0,
+            "accuracy": 0.5854166666666667,
+            "macro_f1": 0.5994786107187718
+          }
+        ],
+        "test": {
+          "lower": {
+            "rows": 186,
+            "accuracy": 0.3010752688172043,
+            "macro_f1": 0.28461946372752,
+            "per_family_recall": {
+              "bass": 0.4838709677419355,
+              "brass": 0.12903225806451613,
+              "guitar": 0.06451612903225806,
+              "keyboard": 0.4838709677419355,
+              "organ": 0.2903225806451613,
+              "string": 0.3548387096774194
+            }
+          },
+          "upper": {
+            "rows": 192,
+            "accuracy": 0.6145833333333334,
+            "macro_f1": 0.6234976007676538,
+            "per_family_recall": {
+              "bass": 0.5,
+              "brass": 0.625,
+              "guitar": 0.5,
+              "keyboard": 0.78125,
+              "organ": 0.5,
+              "string": 0.78125
+            }
+          },
+          "cross_minus_same_macro_f1": -0.3388781370401338
+        }
+      }
+    }
+  }
+}
