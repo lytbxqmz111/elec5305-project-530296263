@@ -1,0 +1,9 @@
+representation,train_register,test_register,condition,rows,accuracy,macro_f1
+handcrafted,lower,lower,same,186,0.7795698924731183,0.7792976957751302
+handcrafted,lower,upper,cross,192,0.65625,0.6552318841948742
+handcrafted,upper,lower,cross,186,0.5806451612903226,0.5766673112017034
+handcrafted,upper,upper,same,192,0.7239583333333334,0.733823859510134
+mert,lower,lower,same,186,0.6182795698924731,0.6203482020909613
+mert,lower,upper,cross,192,0.328125,0.3118403328696275
+mert,upper,lower,cross,186,0.3010752688172043,0.28461946372752
+mert,upper,upper,same,192,0.6145833333333334,0.6234976007676538

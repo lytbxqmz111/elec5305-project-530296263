@@ -6,6 +6,13 @@
 
 The project compares handcrafted acoustic features with frozen MERT-v0-public embeddings using simple downstream classifiers. The main outcome is the performance change after controlling pitch/register, supported by a separate pitch probe and acoustic analysis.
 
+## Presentation
+
+- [Project report (PDF)](530296263_Project_Report.pdf)
+- [Project video presentation](https://drive.google.com/file/d/1t7cOz5LowBdHA8zApOOzeJqaPwMSTwDO/view?usp=sharing)
+- [Project site](https://lytbxqmz111.github.io/elec5305-project-530296263/)
+- [Project repository](https://github.com/lytbxqmz111/elec5305-project-530296263)
+
 ## Project status and experiment map
 
 The official NSynth splits were preserved. The audit verified 305,979 metadata records and matching WAV files, with 289,205 train, 12,678 validation, and 4,096 test notes. Train source instruments have zero overlap with validation/test instruments.
@@ -19,6 +26,7 @@ All core experiments are complete:
 | Pitch-balanced family evaluation | Re-evaluate the same fitted classifiers after controlling register and velocity | Complete |
 | Coarse-pitch probe | Measure how linearly decodable lower/middle/upper register is from each representation | Complete |
 | Acoustic-pair analysis | Illustrate family cues at fixed pitch and within-instrument changes across pitch | Complete |
+| Cross-register generalisation | Train in one register and evaluate on the same or opposite register | Complete |
 
 Accuracy, macro-F1, per-family recall, per-register results, and confusion matrices are reported below. Hyperparameters are selected on validation data only; test rows are never used for fitting or model selection.
 
@@ -185,14 +193,44 @@ Each pair has a five-panel figure containing waveform, magnitude spectrum, log-M
 
 See the [full acoustic interpretation](outputs/results/acoustic_analysis/README.md), [selected-pair manifest](outputs/results/acoustic_analysis/selected_acoustic_pairs.csv), [per-item acoustic metrics](outputs/results/acoustic_analysis/acoustic_item_metrics.csv), and [pair-level comparison metrics](outputs/results/acoustic_analysis/acoustic_pair_metrics.csv).
 
+## Cross-register generalisation experiment
+
+The repository also includes a separate cross-register experiment. It trains a new
+LinearSVC on the **lower** or **upper** register of the frozen, balanced **train**
+manifest, selects `C` using only the same register in the official **validation**
+split, and evaluates both the same and opposite register in the official **test**
+split. Train instruments are disjoint from validation and test instruments; the
+official validation and test splits can share source instruments. The scaler is fitted on source-register training rows only. This directly
+compares L→L with L→U and U→U with U→L; it does not reuse the ordinary fitted
+classifier. Both representations use exactly the same manifest rows.
+
+Results are written to `outputs/results/cross_register/`, models to
+`outputs/models/cross_register/`, and a comparison figure to
+`outputs/figures/cross_register/`. In particular, inspect
+[`cross_register_summary.csv`](outputs/results/cross_register/cross_register_summary.csv) and
+[`cross_register_metrics.json`](outputs/results/cross_register/cross_register_metrics.json).
+Comparing training registers within the **same test register** avoids mixing
+the difficulty of the lower and upper test sets:
+
+| Representation | Test lower: same-register training advantage | Test upper: same-register training advantage |
+|---|---:|---:|
+| Handcrafted | 0.2026 | 0.0786 |
+| Frozen MERT | 0.3357 | 0.3117 |
+
+These macro-F1 differences are descriptive of the restricted 1,200-note
+training protocol. MERT's same-register scores are about 0.62, below the
+handcrafted scores of 0.78 (lower) and 0.73 (upper); the larger differences do
+not establish that the underlying MERT representation is less pitch-robust.
+
 ## Main findings and limitations
 
-1. NSynth families have clearly different pitch distributions, so pitch/register is a reasonable potential confound that should be controlled.
-2. After controlling register and velocity, overall macro-F1 changes by only -0.0108 for handcrafted features and +0.0073 for MERT. Both representations are therefore relatively stable, and the experiment does not reveal a strong overall pitch-confounding effect.
-3. MERT has higher absolute macro-F1 than the handcrafted representation in both the ordinary test (0.6982 vs 0.6816) and the balanced test (0.7055 vs 0.6707). However, the small ordinary-to-balanced changes do not prove that MERT is substantially more robust across registers.
+1. Pitch coverage differs across the full NSynth families. Within the selected six-family ordinary test set and MIDI 43-69, the broad family-by-register association is weak (Cramér's V = 0.063). A small score change after balancing therefore says little about a stronger confound.
+2. After matching register and velocity in the test set, overall macro-F1 changes by -0.0108 for handcrafted features and +0.0073 for MERT. This is a descriptive comparison of different test-note sets, not evidence of pitch invariance.
+3. MERT has numerically higher macro-F1 in the ordinary test (0.6982 vs 0.6816) and balanced test (0.7055 vs 0.6707), but paired source-instrument bootstrap confidence intervals for the between-system differences include zero in both conditions.
 4. The clearer differences occur within particular registers and families. MERT is weaker in the upper register than in the lower and middle registers, and its bass recall falls markedly toward the upper register. Register effects therefore appear to be family-specific rather than uniform.
 5. Coarse pitch remains highly decodable from MERT. This shows that MERT retains pitch information alongside family-related information, but it is not direct evidence of greater cross-register robustness.
-6. The balanced test contains only 594 notes, so small differences should not be treated as strong causal or statistical-significance evidence. Exact-pitch sensitivity and cross-register generalisation remain useful follow-up experiments.
+6. Classifiers trained in one register generally perform better when tested in that register. The advantage varies by system and target register; it should not be interpreted as an intrinsic ranking of representation robustness.
+7. The balanced test contains only 594 notes, so small differences and selected acoustic pairs should be interpreted cautiously. A larger test with more source instruments and closer exact-pitch matching would improve precision.
 
 ## Reproduce the completed experiments
 
@@ -245,6 +283,9 @@ python scripts\train_mert_baseline.py --config configs\mert_baseline.yaml
 python scripts\evaluate_balanced.py --config configs\balanced_evaluation.yaml
 python scripts\train_pitch_probe.py --config configs\pitch_probe.yaml
 python scripts\run_acoustic_analysis.py --config configs\acoustic_analysis.yaml
+
+# Train new classifiers within one register and test cross-register transfer.
+python scripts\run_cross_register.py --config configs\cross_register.yaml
 
 # Run the automated checks.
 pytest -q
